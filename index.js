@@ -8,7 +8,18 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (data, index = null) => {
+  let _date = [];
+  for (i = 0; i < data.length; i++) {
+    let hasil = Date.parse(data[i]) / 1000;
+    _date.push(hasil);
+  }
+  if (index === null) {
+    return _date.sort().join("-");
+  } else {
+    return _date[index].toString();
+  }
+};
 
 // ! JANGAN DIMODIFIKASI
 (() => {
@@ -18,7 +29,7 @@ const createDate = null;
   console.log(createDate?.(dates));
 
   // '1614841200' (dalam string)
-  console.log(createDate?.(dates, 2));
+  console.log(createDate?.(dates, 1));
 })();
 
 module.exports = {
